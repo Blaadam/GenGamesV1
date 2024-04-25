@@ -35,3 +35,12 @@ If you want to add a custom font, it is the same process as how we added images.
 In the main window.xaml, lets start to configure the main window. We do this at the top size of the windows, start location, its width, its  heught and if it is resizable.
 
 Open up the exe example for material desaign, and we are going to grab a nav rail
+
+Add a new foldewr and clal it MainViews - MVVM
+
+Add a new window, call it LoadingScreen
+
+Add a new page, call it DemoPage
+
+Develop the front end for the Loading Screen
+Develop the back end for the Loading Screen

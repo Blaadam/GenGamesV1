@@ -12,6 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+// Add NS
+using System.Timers;
+using Timer = System.Timers.Timer;
 
 namespace GenGamesV1
 {
@@ -20,18 +23,53 @@ namespace GenGamesV1
     /// </summary>
     public partial class LoadingScreen : Window
     {
+
+        // Add the timer function
+        private Timer pBarTimer;
+
         public LoadingScreen()
         {
             InitializeComponent();
+            // Start the Loading Process
+            Load();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        // Method to Initialise the Progress Bar Timer
+        public void Load()
         {
-            Thread.Sleep(5000); // wait for 5 seconds
+            // Create the new time with the tick interval of 16 milliseconds
+            pBarTimer = new Timer(16);
 
-            MainWindow NewWindow = new MainWindow();
-            NewWindow.Show();
-            this.Close();
+            // Subscribe to the Elapsed Event
+
+            pBarTimer.Elapsed += new ElapsedEventHandler(Timer_Tick);
+
+            // Start the Timer
+            pBarTimer.Start();
+        }
+        // Event Handler for the timer tick
+        private void Timer_Tick(object sender, ElapsedEventArgs e)
+        {
+            // Invoke the Update on the UI THread
+            Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal, (Action)(() =>
+                {
+                    if (ProgBar.Value < 100)
+                    {
+                        ProgBar.Value += 0.4;
+                    }
+                    else
+                    {
+                        pBarTimer.Stop();
+                        // Create a new Login Window
+                        MainWindow window = new MainWindow();
+                        // Close the Loading Screen Window
+                        this.Close();
+                        // Show the Login Window
+                        window.ShowDialog();
+                    }
+                }));
+
+            //throw new NotImplementedException();
         }
     }
 }

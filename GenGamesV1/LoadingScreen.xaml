@@ -5,16 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GenGamesV1"
         mc:Ignorable="d"
-        Title="LoadingScreen" Height="450" Width="800"
-        
+        Title="LoadingScreen"
+        Height="450"
+        Width="800"
         WindowStyle="None"
+        
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         Topmost="True"
         
-        Loaded="Window_Loaded">
-    <Grid>
-        <ProgressBar IsIndeterminate="True" />
+        Icon="Images/favicon.ico"
+        
+        AllowsTransparency="True"
+        Background="Transparent"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <!--Company Logo-->
+
+        <Image Grid.Row="0"
+               Source="Images/GG-logos_trans_500.png" />
+        
+        <!--Progress Bar-->
+        <ProgressBar Grid.Row="1"
+                     IsIndeterminate="True"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Foreground="#5A4AE3"
+                     x:Name="ProgBar"/>
+        <!--Copyright Display-->
+
+        <TextBlock Foreground="White" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Text="Copyright 2024 © Generic Games" />
+
     </Grid>
 </Window>
