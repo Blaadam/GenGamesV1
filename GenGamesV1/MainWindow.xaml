@@ -1,0 +1,176 @@
+﻿<Window x:Class="GenGamesV1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GenGamesV1"
+        mc:Ignorable="d"
+        Title="GenericGames v1.0 - Main View"
+        Height="600"
+        Width="1000"
+        WindowStartupLocation="CenterOwner"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="95" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0"
+                  x:Name="NavBarGrid"
+                  Width="90"
+                  HorizontalAlignment="Left" />
+
+            <StackPanel x:Name="LeftNavBarPanel">
+                <!--Left navbar system-->
+                <materialDesign:Card>
+                    <TabControl materialDesign:NavigationRailAssist.ShowSelectionBackground="True"
+                                SnapsToDevicePixels="True"
+                                Style="{StaticResource MaterialDesignNavigationRailTabControl}"
+                                TabStripPlacement="Left"
+                                Margin="5 5 5 5"
+                                Height="564">
+                        <!--<materialDesign:NavigationRailAssist.FloatingContent>
+                    <Button Margin="8"
+                    <Button Margin="8"
+                            Content="{materialDesign:PackIcon Kind=Plus}"
+                            Style="{StaticResource MaterialDesignFloatingActionSecondaryButton}" />
+                </materialDesign:NavigationRailAssist.FloatingContent>-->
+
+                        <!--Home-->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Width="auto"
+                                            Height="auto">
+                                    <materialDesign:PackIcon x:Name="ico_Home"
+                                                             MouseDown="ico_Home_MouseDown"
+                                                             Width="40"
+                                                             Height="40"
+                                                             HorizontalAlignment="Center"
+                                                             Kind="Home"
+                                                             ToolTip="Click to go Home" />
+                                    <TextBlock HorizontalAlignment="Center"
+                                               Text="Home" />
+                                </StackPanel>
+                            </TabItem.Header>
+                        </TabItem>
+
+                        <!--Orders-->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Width="auto"
+                                            Height="auto">
+                                    <materialDesign:PackIcon Width="40"
+                                                             Height="40"
+                                                             HorizontalAlignment="Center"
+                                                             Kind="Cart"
+                                                             MouseDown="ico_Orders_MouseDown"
+                                                             ToolTip="Click to go to Orders" />
+                                    <TextBlock HorizontalAlignment="Center"
+                                               Text="Orders" />
+                                </StackPanel>
+                            </TabItem.Header>
+                        </TabItem>
+
+                        <!--Products-->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Width="auto"
+                                            Height="auto">
+                                    <materialDesign:PackIcon Width="40"
+                                                             Height="40"
+                                                             HorizontalAlignment="Center"
+                                                             Kind="ControllerClassicOutline"
+                                                             MouseDown="ico_Products_MouseDown"
+                                                             ToolTip="Click view Products" />
+                                    <TextBlock HorizontalAlignment="Center"
+                                               Text="Products" />
+                                </StackPanel>
+                            </TabItem.Header>
+                            <StackPanel Margin="16">
+                                <TextBlock Margin="0,0,0,8"
+                                           Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                           Text="Products" />
+                                <TextBlock>
+  <Run Text="tab 2 content. Default look and behaviors." />
+  <LineBreak />
+  <LineBreak />
+  <Run FontStyle="Italic">
+  Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+</Run>
+                                </TextBlock>
+                            </StackPanel>
+                        </TabItem>
+
+                        <!--Customers-->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Width="auto"
+                                            Height="auto">
+                                    <materialDesign:PackIcon Width="40"
+                                                             Height="40"
+                                                             HorizontalAlignment="Center"
+                                                             Kind="AccountMultiple"
+                                                             MouseDown="ico_Customers_MouseDown"
+                                                             ToolTip="Click to view Customers" />
+                                    <TextBlock HorizontalAlignment="Center"
+                                               Text="Customers" />
+                                </StackPanel>
+                            </TabItem.Header>
+
+                        </TabItem>
+
+                        <!--Categories-->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Width="auto"
+                                            Height="auto">
+                                    <materialDesign:PackIcon Width="40"
+                                                             Height="40"
+                                                             HorizontalAlignment="Center"
+                                                             Kind="MenuOpen"
+                                                             MouseDown="ico_Categories_MouseDown"
+                                                             ToolTip="Click to view Categories" />
+                                    <TextBlock HorizontalAlignment="Center"
+                                               Text="Categories" />
+                                </StackPanel>
+                            </TabItem.Header>
+                        </TabItem>
+
+                        <!--Logout-->
+                        <TabItem>
+                            <TabItem.Header>
+                                <StackPanel Width="auto"
+                                            Height="auto">
+                                    <materialDesign:PackIcon Width="40"
+                                                             Height="40"
+                                                             HorizontalAlignment="Center"
+                                                             Kind="ExitRun"
+                                                             MouseDown="ico_Logout_MouseDown"
+                                                             ToolTip="Click to Logout" />
+                                    <TextBlock HorizontalAlignment="Center"
+                                               Text="Logout" />
+                                </StackPanel>
+                            </TabItem.Header>
+                        </TabItem>
+                    </TabControl>
+                </materialDesign:Card>
+            </StackPanel>
+
+            <!-- Right Side Panel -->
+            <Grid Grid.Column="1">
+                <StackPanel x:Name="pnl_ChildWindow"
+                            Height="550"
+                            Margin="10" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
