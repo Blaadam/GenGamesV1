@@ -53,15 +53,20 @@ namespace GenGamesV1
             // Invoke the Update on the UI THread
             Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal, (Action)(() =>
                 {
+
                     if (ProgBar.Value < 100)
                     {
+#if DEBUG
+                        ProgBar.Value += 10;
+#else
                         ProgBar.Value += 0.4;
+#endif
                     }
                     else
                     {
                         pBarTimer.Stop();
                         // Create a new Login Window
-                        MainWindow window = new MainWindow();
+                        Login window = new Login();
                         // Close the Loading Screen Window
                         this.Close();
                         // Show the Login Window

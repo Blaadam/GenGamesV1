@@ -1,12 +1,45 @@
 ﻿<Window x:Class="GenGamesV1.Login"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GenGamesV1"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
-    <Grid>
-        
+        Title="GenericGames v1.0 - Login" Height="450" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="5 5 5 5">
+        <Grid ShowGridLines="False">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--Row 1 - Company Logo-->
+            <Image Source="Images/GG-logos_trans_150.png" Grid.Row="0" Grid.Column="1" />
+
+            <!--Row 2 - Username TextBox-->
+            <TextBox x:Name="NameTextBox" Grid.Row="1" Grid.Column="1"
+                     materialDesign:HintAssist.HelperText="Helper text longer than error"
+                     materialDesign:HintAssist.Hint="Name">
+                <TextBox.Text>
+                    <Binding Path="Name"
+                             UpdateSourceTrigger="PropertyChanged">
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+        </Grid>
     </Grid>
 </Window>

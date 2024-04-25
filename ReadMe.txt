@@ -44,3 +44,8 @@ Add a new page, call it DemoPage
 
 Develop the front end for the Loading Screen
 Develop the back end for the Loading Screen
+
+The new login window will not be found, so go ahead and add Login.xaml
+
+Code the front end for the login
+Code the back end for the login
