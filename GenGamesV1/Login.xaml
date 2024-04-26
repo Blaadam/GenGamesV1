@@ -6,39 +6,110 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GenGamesV1"
         mc:Ignorable="d"
-        Title="GenericGames v1.0 - Login" Height="450" Width="400"
+        Title="GenericGames v1.0 - Login"
+        Height="450"
+        Width="400"
         WindowStartupLocation="CenterScreen">
     <Grid Margin="5 5 5 5">
         <Grid ShowGridLines="False">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="4*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="2*" />
+                <RowDefinition Height="4.5*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="20px" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="20px" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="2*" />
+                <RowDefinition Height="2.5*" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="4*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <!--Row 1 - Company Logo-->
-            <Image Source="Images/GG-logos_trans_150.png" Grid.Row="0" Grid.Column="1" />
+            <Image Source="Images/GG-logos_trans_500.png"
+                   Grid.Row="0"
+                   Grid.Column="1" />
 
             <!--Row 2 - Username TextBox-->
-            <TextBox x:Name="NameTextBox" Grid.Row="1" Grid.Column="1"
-                     materialDesign:HintAssist.HelperText="Helper text longer than error"
-                     materialDesign:HintAssist.Hint="Name">
+            <TextBox x:Name="UsernameTb"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Foreground="#5A4AE3"
+                     materialDesign:HintAssist.HelperText="Enter your Username"
+                     materialDesign:HintAssist.Hint="Username">
                 <TextBox.Text>
                     <Binding Path="Name"
                              UpdateSourceTrigger="PropertyChanged">
                     </Binding>
                 </TextBox.Text>
             </TextBox>
+
+            <!--Row 4 - Password TextBox-->
+            <PasswordBox Grid.Column="1"
+                         Grid.Row="3"
+                         x:Name="PasswordTb"
+                         Foreground="#5A4AE3"
+                         materialDesign:HintAssist.HelperText="At least 8 characters"
+                         materialDesign:HintAssist.Hint="Password" />
+
+            <!--Row 6 - Links-->
+
+            <StackPanel Grid.Column="1"
+                        Grid.Row="5"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+
+                <Button x:Name="LoginBtn"
+                        Grid.Column="1"
+                        Grid.Row="5"
+                        Margin="0px 0px 5px 0px"
+                        Width="100px"
+                        Content="Login"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                        Click="LoginBtn_Click"
+                        Background="#5A4AE3" />
+                <Button x:Name="ClearBtn"
+                        Grid.Column="1"
+                        Grid.Row="6"
+                        Width="100px"
+                        Margin="5px 0px 0px 0px"
+                        Content="Clear"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                        Click="ClearBtn_Click"
+                        Background="#5A4AE3" />
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1"
+                        Grid.Row="7"
+                        HorizontalAlignment="Center">
+
+                <TextBlock TextWrapping="Wrap"
+                           Text="New here? Create an Account!"
+                           VerticalAlignment="Top"
+                           TextAlignment="Center">
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap"
+                           Text="Forgot Password? Submit a ticket to IT!"
+                           VerticalAlignment="Top"
+                           TextAlignment="Center" />
+                <TextBlock />
+                <TextBlock />
+                <TextBlock TextWrapping="Wrap"
+                           Text="Generic Games © 2024"
+                           VerticalAlignment="Top"
+                           TextAlignment="Center" />
+            </StackPanel>
+
 
         </Grid>
     </Grid>

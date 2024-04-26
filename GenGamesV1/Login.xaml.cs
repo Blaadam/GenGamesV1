@@ -23,5 +23,16 @@ namespace GenGamesV1
         {
             InitializeComponent();
         }
+
+        private void ClearBtn_Click(object sender, RoutedEventArgs e)
+        {
+            UsernameTb.Text = string.Empty;
+            PasswordTb.Password = string.Empty;
+        }
+
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

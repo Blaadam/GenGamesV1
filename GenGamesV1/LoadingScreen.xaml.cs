@@ -57,7 +57,7 @@ namespace GenGamesV1
                     if (ProgBar.Value < 100)
                     {
 #if DEBUG
-                        ProgBar.Value += 10;
+                        ProgBar.Value += 1;
 #else
                         ProgBar.Value += 0.4;
 #endif
