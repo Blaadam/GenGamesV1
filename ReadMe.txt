@@ -48,4 +48,17 @@ Develop the back end for the Loading Screen
 The new login window will not be found, so go ahead and add Login.xaml
 
 Code the front end for the login
-Code the back end for the login
+
+Install EF
+-Right click project
+- Select data from the left
+- Select ADO.Net from the list on the right
+- Run through the wizard
+- ensure you select the correct DB
+- EF will create the classes and ERD
+- 
+
+Code the back end of the login
+
+***To be implemented next lessons***
+Create a data source from the left side of VS, you can access that by adding it via the view tab at the top.
