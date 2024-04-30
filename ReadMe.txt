@@ -62,3 +62,10 @@ Code the back end of the login
 
 ***To be implemented next lessons***
 Create a data source from the left side of VS, you can access that by adding it via the view tab at the top.
+Once the DB has been linked into the left side, you can then click on the tables and drag the relevant table to the canvas
+The layout can then be changed and the Window_Loaded should be removed.
+
+**************************************
+
+- In add views, add a new window and call it
+- AddCategoryWindow

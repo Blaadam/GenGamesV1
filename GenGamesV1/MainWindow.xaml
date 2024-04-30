@@ -9,7 +9,6 @@
         Height="600"
         Width="1000"
         WindowStartupLocation="CenterScreen"
-        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -170,7 +169,22 @@
             <Grid Grid.Column="1">
                 <StackPanel x:Name="pnl_ChildWindow"
                             Height="550"
-                            Margin="10" />
+                            Margin="10"
+                            CanVerticallyScroll="True">
+                    
+                    <Frame x:Name="OrdersTab"
+                           Source="/Pages/OrderView.xaml" />
+                    
+                    <Frame x:Name="ProductsTab"
+                           Source="/Pages/ProductView.xaml" />
+                    
+                    <Frame x:Name="CustomersTab"
+                           Source="/Pages/CustomerView.xaml" />
+                    
+                    <Frame x:Name="CategoriesTab"
+                           Source="/Pages/CategoryView.xaml" />
+
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>
