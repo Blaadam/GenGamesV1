@@ -65,6 +65,18 @@ Create a data source from the left side of VS, you can access that by adding it 
 Once the DB has been linked into the left side, you can then click on the tables and drag the relevant table to the canvas
 The layout can then be changed and the Window_Loaded should be removed.
 
+**New Steps**
+In the mainviews folder, add the following:
+-CategoryWindows
+-CustomerWindow
+-HomeWindow
+-OrdersWindow
+- ProductWindow
+
+Go to view then other windows then select data source
+- Select add new data source
+- Select add new data source will not be available if you are still on the readme
+
 **************************************
 
 - In add views, add a new window and call it
