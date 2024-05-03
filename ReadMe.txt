@@ -75,9 +75,22 @@ In the mainviews folder, add the following:
 
 Go to view then other windows then select data source
 - Select add new data source
-- Select add new data source will not be available if you are still on the readme
+-> Select add new data source will not be available if you are still on the readme
+-> If it doesn't show the table names in the Object tab, clean and rebuild the solution.
+
+You should be able to identigy your tables, place a tick in the boxes and click click finish
+you have added, Orders, Customers, Categories, Products and Users
 
 **************************************
 
 - In add views, add a new window and call it
 - AddCategoryWindow
+- Develop the front end
+
+- Add in views, add a new window call it
+- AddCustomerWindow
+- Develop the front end
+
+On the MainWindow, we need to develop the panel elements to this software.
+- OIn the back end of the main window, develop the panel code.
+- Front end and ensure the the panel is referenced

@@ -21,7 +21,29 @@ namespace GenGamesV1.MainViews
     {
         public ProductWindow()
         {
-            InitializeComponent();
+            try
+            {
+                // Initialise the window and populate the table
+                InitializeComponent();
+
+                PopulateTable();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There has been an error.\n" + ex.Message);
+            }
+        }
+
+        private void PopulateTable()
+        {
+            // Retrieve the collectionViewSource
+            CollectionViewSource collectionViewSource = (CollectionViewSource)FindResource("tblProductViewSource");
+            // Create context to interact with the database
+
+            var context = new GenericGamesWPFEntities();
+            // Retrieve category data from the database and set it as the source for the CollectionViewSource
+            collectionViewSource.Source = context.tblProducts.ToList(); ;
         }
     }
 }

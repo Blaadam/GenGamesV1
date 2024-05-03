@@ -21,7 +21,36 @@ namespace GenGamesV1.MainViews
     {
         public CategoryWindow()
         {
-            InitializeComponent();
+            try
+            {
+                // Initialise the window and populate the table
+                InitializeComponent();
+
+                PopulateTable();
+
+            }
+            catch(Exception ex) {
+                MessageBox.Show("There has been an error.\n"+ex.Message);
+            }
         }
+
+        private void PopulateTable()
+        {
+            // Retrieve the collectionViewSource
+            CollectionViewSource collectionViewSource = (CollectionViewSource)FindResource("tblCategoryViewSource");
+            // Create context to interact with the database
+
+            var context = new GenericGamesWPFEntities();
+            // Retrieve category data from the database and set it as the source for the CollectionViewSource
+            collectionViewSource.Source = context.tblCategories.ToList(); ;
+        }
+
+        //private void Window_Loaded(object sender, RoutedEventArgs e)
+        //{
+
+        //    System.Windows.Data.CollectionViewSource tblCategoryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("tblCategoryViewSource")));
+        //    // Load data by setting the CollectionViewSource.Source property:
+        //    // tblCategoryViewSource.Source = [generic data source]
+        //}
     }
 }

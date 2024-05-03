@@ -239,6 +239,11 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\tblCategory.datasource" />
+    <None Include="Properties\DataSources\tblCustomer.datasource" />
+    <None Include="Properties\DataSources\tblOrder.datasource" />
+    <None Include="Properties\DataSources\tblProduct.datasource" />
+    <None Include="Properties\DataSources\tblUser.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

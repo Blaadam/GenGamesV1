@@ -170,21 +170,7 @@
                 <StackPanel x:Name="pnl_ChildWindow"
                             Height="550"
                             Margin="10"
-                            CanVerticallyScroll="True">
-                    
-                    <Frame x:Name="OrdersTab"
-                           Source="/Pages/OrderView.xaml" />
-                    
-                    <Frame x:Name="ProductsTab"
-                           Source="/Pages/ProductView.xaml" />
-                    
-                    <Frame x:Name="CustomersTab"
-                           Source="/Pages/CustomerView.xaml" />
-                    
-                    <Frame x:Name="CategoriesTab"
-                           Source="/Pages/CategoryView.xaml" />
-
-                </StackPanel>
+                            CanVerticallyScroll="True"></StackPanel>
             </Grid>
         </Grid>
     </Grid>

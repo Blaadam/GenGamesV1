@@ -1,12 +1,44 @@
-﻿<Window x:Class="GenGamesV1.MainViews.CategoryWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GenGamesV1.MainViews"
+        xmlns:GenGamesV1="clr-namespace:GenGamesV1"
+        x:Class="GenGamesV1.MainViews.CategoryWindow"
         mc:Ignorable="d"
-        Title="CategoryWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="CategoryWindow"
+        Height="450"
+        Width="800">
+    <Window.Resources>
+        <CollectionViewSource x:Key="tblCategoryViewSource"
+                              d:DesignSource="{d:DesignInstance {x:Type GenGamesV1:tblCategory}}" />
+    </Window.Resources>
+    
+    <!--Category View Source-->
+    
+    <Grid DataContext="{StaticResource tblCategoryViewSource}">
+
+        <DataGrid x:Name="tblCategoryDataGrid"
+                  AutoGenerateColumns="False"
+                  EnableRowVirtualization="True"
+                  ItemsSource="{Binding}"
+                  RowDetailsVisibilityMode="VisibleWhenSelected"
+                  Margin="10,10,10,224">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="categoryDescriptionColumn"
+                                    Binding="{Binding CategoryDescription}"
+                                    Header="Category Description"
+                                    Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="categoryIDColumn"
+                                    Binding="{Binding CategoryID}"
+                                    Header="Category ID"
+                                    Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="categoryNameColumn"
+                                    Binding="{Binding CategoryName}"
+                                    Header="Category Name"
+                                    Width="SizeToHeader" />
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Window>

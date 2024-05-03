@@ -361,9 +361,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/GenGamesV1/GenGamesV1_AWDataSet.Designer.cs
-/GenGamesV1/GenGamesV1_AWDataSet.xsc
-/GenGamesV1/GenGamesV1_AWDataSet.xsd
-/GenGamesV1/GenGamesV1_AWDataSet.xss
-/.gitignore
-/.gitignore
