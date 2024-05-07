@@ -64,7 +64,7 @@
                         </TabItem>
 
                         <!--Orders-->
-                        <TabItem>
+                        <TabItem MouseDown="ico_Orders_MouseDown">
                             <TabItem.Header>
                                 <StackPanel Width="auto"
                                             Height="auto">

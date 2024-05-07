@@ -15,20 +15,35 @@
     </Window.Resources>
     
     <!--Category View Source-->
-    
-    <Grid DataContext="{StaticResource tblCategoryViewSource}">
 
-        <DataGrid x:Name="tblCategoryDataGrid"
+    <Grid DataContext="{StaticResource tblCategoryViewSource}" ShowGridLines="True">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50px" />
+            <RowDefinition Height="auto"
+                           MaxHeight="400px" />
+            <RowDefinition Height="50px" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="RefreshBtn"
+                Grid.Column="0"
+                Grid.Row="0"
+                Width="100px"
+                Margin="5px 0px 0px 0px"
+                Content="Refresh"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                Background="#5A4AE3"
+                Click="RefreshBtn_Click" />
+
+        <DataGrid Grid.Row="1" x:Name="tblCategoryDataGrid"
                   AutoGenerateColumns="False"
                   EnableRowVirtualization="True"
                   ItemsSource="{Binding}"
                   RowDetailsVisibilityMode="VisibleWhenSelected"
-                  Margin="10,10,10,224">
+                  Margin="10,10,10,0" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="categoryDescriptionColumn"
-                                    Binding="{Binding CategoryDescription}"
-                                    Header="Category Description"
-                                    Width="SizeToHeader" />
                 <DataGridTextColumn x:Name="categoryIDColumn"
                                     Binding="{Binding CategoryID}"
                                     Header="Category ID"
@@ -37,8 +52,53 @@
                                     Binding="{Binding CategoryName}"
                                     Header="Category Name"
                                     Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="categoryDescriptionColumn"
+                                    Binding="{Binding CategoryDescription}"
+                                    Header="Category Description"
+                                    Width="SizeToHeader" />
             </DataGrid.Columns>
         </DataGrid>
+
+        <StackPanel Grid.Column="0"
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="5px"
+                    Orientation="Horizontal">
+
+            <Button x:Name="AddBtn"
+                    Grid.Column="1"
+                    Grid.Row="5"
+                    Margin="0px 0px 5px 0px"
+                    Width="100px"
+                    Content="Add"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    Background="#5A4AE3"
+                    Click="AddBtn_Click" />
+            <Button x:Name="EditBtn"
+                    Grid.Column="1"
+                    Grid.Row="6"
+                    Width="100px"
+                    Margin="5px 0px 0px 0px"
+                    Content="Edit"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    Background="#5A4AE3" />
+            <Button x:Name="RemoveBtn"
+                    Grid.Column="1"
+                    Grid.Row="6"
+                    Width="100px"
+                    Margin="5px 0px 0px 0px"
+                    Content="Remove"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    Background="#5A4AE3" />
+
+        </StackPanel>
 
     </Grid>
 </Window>

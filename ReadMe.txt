@@ -94,3 +94,9 @@ you have added, Orders, Customers, Categories, Products and Users
 On the MainWindow, we need to develop the panel elements to this software.
 - OIn the back end of the main window, develop the panel code.
 - Front end and ensure the the panel is referenced
+
+2024-05-07 14:06
+The order of the data within the category screen is disordered, so change.
+This can be simply changed by moving content around in the DataGrid front end.
+
+We now need to add some functional buttons to the bottom of category view.

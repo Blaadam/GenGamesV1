@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GenGamesV1.AddViews;
 
 namespace GenGamesV1.MainViews
 {
@@ -43,6 +44,17 @@ namespace GenGamesV1.MainViews
             var context = new GenericGamesWPFEntities();
             // Retrieve category data from the database and set it as the source for the CollectionViewSource
             collectionViewSource.Source = context.tblCategories.ToList(); ;
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddCategoryWindow Window = new AddCategoryWindow();
+            Window.Show();
+        }
+
+        private void RefreshBtn_Click(object sender, RoutedEventArgs e)
+        {
+            PopulateTable ();
         }
 
         //private void Window_Loaded(object sender, RoutedEventArgs e)
