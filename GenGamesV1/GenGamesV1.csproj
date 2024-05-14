@@ -85,6 +85,12 @@
     <Compile Include="AddViews\AddCustomerWindow.xaml.cs">
       <DependentUpon>AddCustomerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddViews\AddOrderWindow.xaml.cs">
+      <DependentUpon>AddOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddViews\AddProductWindow.xaml.cs">
+      <DependentUpon>AddProductWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainViews\CategoryWindow.xaml.cs">
       <DependentUpon>CategoryWindow.xaml</DependentUpon>
     </Compile>
@@ -137,6 +143,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddViews\AddCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddViews\AddOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddViews\AddProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

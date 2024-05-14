@@ -106,7 +106,7 @@ namespace GenGamesV1
 
         private void ico_Logout_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

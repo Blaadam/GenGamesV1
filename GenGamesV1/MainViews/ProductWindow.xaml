@@ -18,7 +18,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50px" />
             <RowDefinition Height="auto"
-                           MaxHeight="400px" />
+                           MinHeight="320px"
+                           MaxHeight="350px" />
             <RowDefinition Height="50px" />
         </Grid.RowDefinitions>
 
@@ -39,7 +40,8 @@
                   EnableRowVirtualization="True"
                   ItemsSource="{Binding}"
                   RowDetailsVisibilityMode="VisibleWhenSelected"
-                  Margin="10,10,10,224">
+                  IsReadOnly="True"
+                  Margin="10,10,10,0">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn x:Name="inStockColumn"
                                         Binding="{Binding InStock}"
@@ -99,7 +101,8 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
-                    Background="#5A4AE3" />
+                    Background="#5A4AE3"
+                    Click="AddBtn_Click" />
             <Button x:Name="EditBtn"
                     Grid.Column="1"
                     Grid.Row="6"

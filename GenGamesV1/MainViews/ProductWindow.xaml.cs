@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GenGamesV1.AddViews;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,6 +45,12 @@ namespace GenGamesV1.MainViews
             var context = new GenericGamesWPFEntities();
             // Retrieve category data from the database and set it as the source for the CollectionViewSource
             collectionViewSource.Source = context.tblProducts.ToList(); ;
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddProductWindow Window = new AddProductWindow();
+            Window.Show();
         }
     }
 }

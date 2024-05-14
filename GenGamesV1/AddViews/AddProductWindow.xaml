@@ -1,0 +1,126 @@
+﻿<Window x:Class="GenGamesV1.AddViews.AddProductWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GenGamesV1.AddViews"
+        mc:Ignorable="d"
+        Title="GenericGames v1.0 - Add Category"
+        Height="450"
+        Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2.25*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="20px" />
+        </Grid.RowDefinitions>
+
+        <!--Row 1 - Company Logo-->
+        <Image x:Name="Logo"
+               Source="/Images/GG-logos_trans_500.png"
+               Grid.Row="0"
+               Grid.Column="1" />
+
+        <!--Row 3 - Category Name Input-->
+        <ScrollViewer Grid.Row="1" Grid.Column="1">
+            <StackPanel>
+                <TextBox x:Name="Add_ProductNameTb"
+                         Foreground="#5A4AE3"
+                         materialDesign:HintAssist.Hint="Product Name"
+                         Padding="10px" />
+
+                <TextBox x:Name="Add_ProductDescTb"
+                         Foreground="#5A4AE3"
+                         VerticalAlignment="Stretch"
+                         AcceptsReturn="True"
+                         SpellCheck.IsEnabled="True"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Hidden"
+                         materialDesign:HintAssist.Hint="Category Description"
+                         MinHeight="125px"
+                         Height="auto" />
+                <TextBox x:Name="Add_ProductCategory"
+                         Foreground="#5A4AE3"
+                         materialDesign:HintAssist.Hint="Product Category"
+                         Padding="10px" />
+                <TextBox x:Name="Add_ProductSize"
+                         Foreground="#5A4AE3"
+                         materialDesign:HintAssist.Hint="Product Size"
+                         Padding="10px" />
+                <TextBox x:Name="Add_ProductRetailCost"
+                         Foreground="#5A4AE3"
+                         materialDesign:HintAssist.Hint="Product Retail Cost"
+                         Padding="10px" />
+                <TextBox x:Name="Add_ProductWholesaleCost"
+                         Foreground="#5A4AE3"
+                         materialDesign:HintAssist.Hint="Product Wholesale Cost"
+                         Padding="10px" />
+                <CheckBox x:Name="Add_ProductInStock"
+                          Content="Product is in Stock"
+                          IsChecked="False" />
+                <TextBox x:Name="Add_ProductQuantity"
+                         Foreground="#5A4AE3"
+                         materialDesign:HintAssist.Hint="Product Quantity"
+                         Padding="10px" />
+                <TextBox x:Name="Add_ProductSerialNumber"
+                         Foreground="#5A4AE3"
+                         materialDesign:HintAssist.Hint="Product Serial Number"
+                         Padding="10px" />
+            </StackPanel>
+
+
+        </ScrollViewer>
+
+        
+
+
+
+        <StackPanel Grid.Column="1"
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+
+            <Button x:Name="Add_Product_AddBtn"
+                    Grid.Column="1"
+                    Grid.Row="5"
+                    Margin="0px 0px 5px 0px"
+                    Width="100px"
+                    Content="Add"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    Background="#5A4AE3"
+                    Click="Add_Product_AddBtn_Click" />
+            <Button x:Name="Add_Product_ClearBtn"
+                    Grid.Column="1"
+                    Grid.Row="6"
+                    Width="100px"
+                    Margin="5px 0px 0px 0px"
+                    Content="Clear"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    Background="#5A4AE3"
+                    Click="Add_Product_ClearBtn_Click" />
+
+        </StackPanel>
+
+
+        <TextBlock TextWrapping="Wrap"
+                   Grid.Column="1"
+                   Grid.Row="3"
+                   Text="Generic Games © 2024"
+                   VerticalAlignment="Top"
+                   TextAlignment="Center" />
+
+
+    </Grid>
+</Window>

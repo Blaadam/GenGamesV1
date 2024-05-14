@@ -7,7 +7,7 @@
         x:Class="GenGamesV1.MainViews.CategoryWindow"
         mc:Ignorable="d"
         Title="CategoryWindow"
-        Height="450"
+        Height="550"
         Width="800">
     <Window.Resources>
         <CollectionViewSource x:Key="tblCategoryViewSource"
@@ -20,8 +20,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="50px" />
-            <RowDefinition Height="auto"
-                           MaxHeight="400px" />
+            <RowDefinition Height="440px" />
             <RowDefinition Height="50px" />
         </Grid.RowDefinitions>
 
@@ -37,27 +36,31 @@
                 Background="#5A4AE3"
                 Click="RefreshBtn_Click" />
 
-        <DataGrid Grid.Row="1" x:Name="tblCategoryDataGrid"
-                  AutoGenerateColumns="False"
-                  EnableRowVirtualization="True"
-                  ItemsSource="{Binding}"
-                  RowDetailsVisibilityMode="VisibleWhenSelected"
-                  Margin="10,10,10,0" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="categoryIDColumn"
-                                    Binding="{Binding CategoryID}"
-                                    Header="Category ID"
-                                    Width="SizeToHeader" />
-                <DataGridTextColumn x:Name="categoryNameColumn"
-                                    Binding="{Binding CategoryName}"
-                                    Header="Category Name"
-                                    Width="SizeToHeader" />
-                <DataGridTextColumn x:Name="categoryDescriptionColumn"
-                                    Binding="{Binding CategoryDescription}"
-                                    Header="Category Description"
-                                    Width="SizeToHeader" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <ScrollViewer Grid.Row="1">
+            <DataGrid
+                      x:Name="tblCategoryDataGrid"
+                      AutoGenerateColumns="False"
+                      EnableRowVirtualization="True"
+                      ItemsSource="{Binding}"
+                      RowDetailsVisibilityMode="VisibleWhenSelected"
+                      Margin="10,10,10,0"
+                      IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="categoryIDColumn"
+                                        Binding="{Binding CategoryID}"
+                                        Header="Category ID"
+                                        Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="categoryNameColumn"
+                                        Binding="{Binding CategoryName}"
+                                        Header="Category Name"
+                                        Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="categoryDescriptionColumn"
+                                        Binding="{Binding CategoryDescription}"
+                                        Header="Category Description"
+                                        Width="SizeToHeader" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
 
         <StackPanel Grid.Column="0"
                     Grid.Row="2"

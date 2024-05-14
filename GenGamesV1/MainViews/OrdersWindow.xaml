@@ -7,7 +7,7 @@
         x:Class="GenGamesV1.MainViews.OrdersWindow"
         mc:Ignorable="d"
         Title="OrdersWindow"
-        Height="450"
+        Height="550"
         Width="800">
     <Window.Resources>
         <CollectionViewSource x:Key="tblOrderViewSource"
@@ -16,16 +16,29 @@
     <Grid DataContext="{StaticResource tblOrderViewSource}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"
-                           MaxHeight="400px" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50px" />
+            <RowDefinition Height="440px" />
+            <RowDefinition Height="50px" />
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="tblOrderDataGrid"
+        <Button x:Name="RefreshBtn"
+                Grid.Column="0"
+                Grid.Row="0"
+                Width="100px"
+                Margin="5px 0px 0px 0px"
+                Content="Refresh"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                Background="#5A4AE3"
+                Click="RefreshBtn_Click" />
+
+        <DataGrid Grid.Row="1" x:Name="tblOrderDataGrid"
                   AutoGenerateColumns="False"
                   EnableRowVirtualization="True"
                   ItemsSource="{Binding}"
                   RowDetailsVisibilityMode="VisibleWhenSelected"
+                  IsReadOnly="True"
                   Margin="10,10,10,224">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="customerHouseNoColumn"
@@ -102,6 +115,7 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    Click="AddBtn_Click"
                     Background="#5A4AE3" />
             <Button x:Name="EditBtn"
                     Grid.Column="1"
@@ -112,6 +126,7 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    Click="EditBtn_Click"
                     Background="#5A4AE3" />
             <Button x:Name="RemoveBtn"
                     Grid.Column="1"
@@ -122,6 +137,7 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                    Click="RemoveBtn_Click"
                     Background="#5A4AE3" />
 
         </StackPanel>

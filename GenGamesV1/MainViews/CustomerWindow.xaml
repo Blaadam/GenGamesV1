@@ -7,7 +7,7 @@
         x:Class="GenGamesV1.MainViews.CustomerWindow"
         mc:Ignorable="d"
         Title="CustomerWindow"
-        Height="450"
+        Height="550"
         Width="800">
     <Window.Resources>
         <CollectionViewSource x:Key="tblCustomerViewSource"
@@ -16,60 +16,75 @@
     <Grid DataContext="{StaticResource tblCustomerViewSource}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"
-                           MaxHeight="400px" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50px" />
+            <RowDefinition Height="440px" />
+            <RowDefinition Height="50px" />
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="tblCustomerDataGrid"
-                  AutoGenerateColumns="False"
-                  EnableRowVirtualization="True"
-                  ItemsSource="{Binding}"
-                  RowDetailsVisibilityMode="VisibleWhenSelected"
-                  Margin="10,10,10,224">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="customerAddressStreetNameColumn"
-                                    Binding="{Binding CustomerAddressStreetName}"
-                                    Header="Customer Address Street Name"
-                                    Width="SizeToHeader" />
-                <DataGridTextColumn x:Name="customerCityColumn"
-                                    Binding="{Binding CustomerCity}"
-                                    Header="Customer City"
-                                    Width="SizeToHeader" />
-                <DataGridTextColumn x:Name="customerCountryColumn"
-                                    Binding="{Binding CustomerCountry}"
-                                    Header="Customer Country"
-                                    Width="SizeToHeader" />
-                <DataGridTextColumn x:Name="customerFirstNameColumn"
-                                    Binding="{Binding CustomerFirstName}"
-                                    Header="Customer First Name"
-                                    Width="SizeToHeader" />
-                <DataGridTextColumn x:Name="customerHomeTelColumn"
-                                    Binding="{Binding CustomerHomeTel}"
-                                    Header="Customer Home Tel"
-                                    Width="SizeToHeader" />
-                <DataGridTextColumn x:Name="customerHouseNoColumn"
-                                    Binding="{Binding CustomerHouseNo}"
-                                    Header="Customer House No"
-                                    Width="SizeToHeader" />
-                <DataGridTextColumn x:Name="customerIDColumn"
-                                    Binding="{Binding CustomerID}"
-                                    Header="Customer ID"
-                                    Width="SizeToHeader" />
-                <DataGridTextColumn x:Name="customerMobileColumn"
-                                    Binding="{Binding CustomerMobile}"
-                                    Header="Customer Mobile"
-                                    Width="SizeToHeader" />
-                <DataGridTextColumn x:Name="customerPostcodeColumn"
-                                    Binding="{Binding CustomerPostcode}"
-                                    Header="Customer Postcode"
-                                    Width="SizeToHeader" />
-                <DataGridTextColumn x:Name="customerSurnameColumn"
-                                    Binding="{Binding CustomerSurname}"
-                                    Header="Customer Surname"
-                                    Width="SizeToHeader" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <Button x:Name="RefreshBtn"
+                Grid.Column="0"
+                Grid.Row="0"
+                Width="100px"
+                Margin="5px 0px 0px 0px"
+                Content="Refresh"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                Background="#5A4AE3"
+                Click="RefreshBtn_Click" />
+
+        <ScrollViewer Grid.Row="1">
+            <DataGrid x:Name="tblCustomerDataGrid"
+                      AutoGenerateColumns="False"
+                      EnableRowVirtualization="True"
+                      ItemsSource="{Binding}"
+                      RowDetailsVisibilityMode="VisibleWhenSelected"
+                      Margin="10,10,10,0"
+                      IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="customerAddressStreetNameColumn"
+                                        Binding="{Binding CustomerAddressStreetName}"
+                                        Header="Customer Address Street Name"
+                                        Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="customerCityColumn"
+                                        Binding="{Binding CustomerCity}"
+                                        Header="Customer City"
+                                        Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="customerCountryColumn"
+                                        Binding="{Binding CustomerCountry}"
+                                        Header="Customer Country"
+                                        Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="customerFirstNameColumn"
+                                        Binding="{Binding CustomerFirstName}"
+                                        Header="Customer First Name"
+                                        Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="customerHomeTelColumn"
+                                        Binding="{Binding CustomerHomeTel}"
+                                        Header="Customer Home Tel"
+                                        Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="customerHouseNoColumn"
+                                        Binding="{Binding CustomerHouseNo}"
+                                        Header="Customer House No"
+                                        Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="customerIDColumn"
+                                        Binding="{Binding CustomerID}"
+                                        Header="Customer ID"
+                                        Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="customerMobileColumn"
+                                        Binding="{Binding CustomerMobile}"
+                                        Header="Customer Mobile"
+                                        Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="customerPostcodeColumn"
+                                        Binding="{Binding CustomerPostcode}"
+                                        Header="Customer Postcode"
+                                        Width="SizeToHeader" />
+                    <DataGridTextColumn x:Name="customerSurnameColumn"
+                                        Binding="{Binding CustomerSurname}"
+                                        Header="Customer Surname"
+                                        Width="SizeToHeader" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
 
         <StackPanel Grid.Column="0"
                     Grid.Row="2"
