@@ -1,4 +1,5 @@
 ﻿using GenGamesV1.AddViews;
+using GenGamesV1.EditViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,28 @@ namespace GenGamesV1.MainViews
         {
             AddProductWindow Window = new AddProductWindow();
             Window.Show();
+        }
+
+        private int OrderID;
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EditOrderWindow Window = new EditOrderWindow(OrderID);
+            Window.Show();
+        }
+
+        private void RemoveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show($"Are you sure you want to remove CategoryID: {OrderID} from the Database?", "Remove Category", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                var context = new GenericGamesWPFEntities();
+                var Entry = context.tblCustomers.Where(c => c.CustomerID == OrderID).FirstOrDefault();
+
+                context.tblCustomers.Remove(Entry);
+                context.SaveChanges();
+                MessageBox.Show($"CategoryID: {OrderID} has been deleted from the Database.");
+                PopulateTable();
+            }
         }
     }
 }

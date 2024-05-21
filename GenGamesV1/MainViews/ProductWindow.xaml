@@ -112,7 +112,8 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
-                    Background="#5A4AE3" />
+                    Background="#5A4AE3"
+                    Click="EditBtn_Click"/>
             <Button x:Name="RemoveBtn"
                     Grid.Column="1"
                     Grid.Row="6"
@@ -122,7 +123,7 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
-                    Background="#5A4AE3" />
+                    Background="#5A4AE3" Click="RemoveBtn_Click" />
 
         </StackPanel>
 

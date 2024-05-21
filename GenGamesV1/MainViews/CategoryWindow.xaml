@@ -44,7 +44,8 @@
                       ItemsSource="{Binding}"
                       RowDetailsVisibilityMode="VisibleWhenSelected"
                       Margin="10,10,10,0"
-                      IsReadOnly="True">
+                      IsReadOnly="True"
+                      SelectedCellsChanged="Datagrid_SelectedItemsChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="categoryIDColumn"
                                         Binding="{Binding CategoryID}"
@@ -59,6 +60,12 @@
                                         Header="Category Description"
                                         Width="SizeToHeader" />
                 </DataGrid.Columns>
+                <!--<DataGrid.ItemContainerStyle>
+                    <Style TargetType="DataGridRow">
+                        <EventSetter Event="MouseDown"
+                                     Handler="Row_Click" />
+                    </Style>
+                </DataGrid.ItemContainerStyle>-->
             </DataGrid>
         </ScrollViewer>
 
@@ -89,7 +96,8 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
-                    Background="#5A4AE3" />
+                    Background="#5A4AE3"
+                    Click="EditBtn_Click" />
             <Button x:Name="RemoveBtn"
                     Grid.Column="1"
                     Grid.Row="6"
@@ -99,7 +107,8 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
-                    Background="#5A4AE3" />
+                    Background="#5A4AE3"
+                    Click="RemoveBtn_Click" />
 
         </StackPanel>
 

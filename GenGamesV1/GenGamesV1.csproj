@@ -91,6 +91,15 @@
     <Compile Include="AddViews\AddProductWindow.xaml.cs">
       <DependentUpon>AddProductWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditViews\EditCategoryWindow.xaml.cs">
+      <DependentUpon>EditCategoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditViews\EditCustomerWindow.xaml.cs">
+      <DependentUpon>EditCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditViews\EditOrderWindow.xaml.cs">
+      <DependentUpon>EditOrderWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainViews\CategoryWindow.xaml.cs">
       <DependentUpon>CategoryWindow.xaml</DependentUpon>
     </Compile>
@@ -151,6 +160,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddViews\AddProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditViews\EditCategoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditViews\EditCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditViews\EditOrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -341,7 +362,6 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="EditViews\" />
     <Folder Include="SelectViews\" />
   </ItemGroup>
   <ItemGroup>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GenGamesV1.AddViews;
 using GenGamesV1.MainViews;
+using GenGamesV1.EditViews;
 
 namespace GenGamesV1.MainViews
 {
@@ -31,8 +32,9 @@ namespace GenGamesV1.MainViews
                 PopulateTable();
 
             }
-            catch(Exception ex) {
-                MessageBox.Show("There has been an error.\n"+ex.Message);
+            catch (Exception ex)
+            {
+                MessageBox.Show("There has been an error.\n" + ex.Message);
             }
         }
 
@@ -55,7 +57,41 @@ namespace GenGamesV1.MainViews
 
         private void RefreshBtn_Click(object sender, RoutedEventArgs e)
         {
-            PopulateTable ();
+            PopulateTable();
+        }
+
+        private int CategoryID;
+
+        private void Datagrid_SelectedItemsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (tblCategoryDataGrid.SelectedItems.Count != 0)
+            {
+                // Assuming 'CategoryID' is a property of your data model
+                var selectedItem = tblCategoryDataGrid.SelectedItems[0];
+                int categoryId = (int)selectedItem.GetType().GetProperty("CategoryID").GetValue(selectedItem);
+                // Use 'categoryId' as needed
+                CategoryID = categoryId;
+            }
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EditCategoryWindow Window = new EditCategoryWindow(CategoryID);
+            Window.Show();
+        }
+
+        private void RemoveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show($"Are you sure you want to remove CategoryID: {CategoryID} from the Database?", "Remove Category", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                var context = new GenericGamesWPFEntities();
+                var Entry = context.tblCategories.Where(c => c.CategoryID == CategoryID).FirstOrDefault();
+
+                context.tblCategories.Remove(Entry);
+                context.SaveChanges();
+                MessageBox.Show($"CategoryID: {CategoryID} has been deleted from the Database.");
+                PopulateTable();
+            }
         }
 
         //private void Window_Loaded(object sender, RoutedEventArgs e)

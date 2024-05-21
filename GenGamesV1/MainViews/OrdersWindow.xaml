@@ -39,7 +39,7 @@
                   ItemsSource="{Binding}"
                   RowDetailsVisibilityMode="VisibleWhenSelected"
                   IsReadOnly="True"
-                  Margin="10,10,10,224">
+                  Margin="10,10,10,0">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="customerHouseNoColumn"
                                     Binding="{Binding CustomerHouseNo}"

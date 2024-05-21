@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GenGamesV1.AddViews;
+using GenGamesV1.EditViews;
 
 namespace GenGamesV1.MainViews
 {
@@ -56,6 +58,46 @@ namespace GenGamesV1.MainViews
         private void RefreshBtn_Click(object sender, RoutedEventArgs e)
         {
             PopulateTable();
+        }
+
+        private int CustomerID;
+
+        private void Datagrid_SelectedItemsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (tblCustomerDataGrid.SelectedItems.Count != 0)
+            {
+                // Assuming 'CategoryID' is a property of your data model
+                var selectedItem = tblCustomerDataGrid.SelectedItems[0];
+                int customerId = (int)selectedItem.GetType().GetProperty("CustomerID").GetValue(selectedItem);
+                // Use 'categoryId' as needed
+                CustomerID = customerId;
+            }
+        }
+
+        private void AddBtn_Click_1(object sender, RoutedEventArgs e)
+        {
+            AddCustomerWindow Window = new AddCustomerWindow();
+            Window.Show();
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EditCustomerWindow Window = new EditCustomerWindow(CustomerID);
+            Window.Show();
+        }
+
+        private void RemoveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show($"Are you sure you want to remove CategoryID: {CustomerID} from the Database?", "Remove Category", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                var context = new GenericGamesWPFEntities();
+                var Entry = context.tblCustomers.Where(c => c.CustomerID == CustomerID).FirstOrDefault();
+
+                context.tblCustomers.Remove(Entry);
+                context.SaveChanges();
+                MessageBox.Show($"CategoryID: {CustomerID} has been deleted from the Database.");
+                PopulateTable();
+            }
         }
     }
 }
